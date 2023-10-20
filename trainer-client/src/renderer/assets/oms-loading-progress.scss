@@ -1,0 +1,39 @@
+@mixin loadingProgress {
+  .loadingProgress {
+    position: relative;
+    margin: 1vh 4vh;
+    height: 2vh;
+    border:  $default-border;
+     &:before {
+      position: absolute;
+      left: -3.2vh;
+      top: 0.1vh;
+      font-size: $default-text-size;
+      content: ' ';
+      background: url('~@/assets/static/img/loading.png') no-repeat;
+      background-size: 20px 20px;
+      height: 20px;
+      width: 20px;
+      color: $green;
+      animation: spin 1s linear infinite;
+      @keyframes spin { 100% { transform:rotate(360deg); } }
+    }
+    &.completed:before {
+       animation: still;
+       @keyframes still { 100% { transform:rotate(0deg); } }
+    }
+    .loadedRatio {
+      position: absolute;
+      color: $wh;
+      right: -4.85vh;
+        &:after {
+          content: "%";
+        }
+    }
+    .indicator {
+      height: 100%;
+      position: absolute;
+      background-color: $wh;
+    }
+  }
+}

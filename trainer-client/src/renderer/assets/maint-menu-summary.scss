@@ -1,0 +1,44 @@
+@import '~@/assets/vars';
+.maint-menu-summary {
+  .vue-tabs {
+    section {
+      height: 50vh;
+    }
+  }
+  .description-title {
+    margin: 0;
+  }
+
+  .tab-header {
+    height: 3vh
+  }
+
+  .help-tab-fault {
+    border-bottom: $default-border;
+    .help-tab-fault-description {
+      line-height: 5vh;
+      margin-left: 1vh
+    }
+  }
+
+  .help-description {
+    margin: 1vh;
+    @include pre-formatted();
+  }
+
+  .fde-description {
+    width: 100%;
+    height: 18vh;
+    vertical-align: top;
+    border: $default-border;
+    margin-bottom: 0 !important;
+    div {
+      padding: 1vh;
+      @include pre-formatted();
+    }
+    .fault {
+      border-bottom: $default-border;
+      line-height: 2vh;
+    }
+  }
+}

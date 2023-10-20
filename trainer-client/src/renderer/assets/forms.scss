@@ -1,0 +1,61 @@
+@import '~@/assets/vars';
+form {
+  margin: 5vh 2vh;
+  .no-margin {
+    margin: 0;
+  }
+  label {
+    font-size: $default-text-size
+  }
+  &.load-aircraft-software-set {
+    margin: 5vh 0
+  }
+  input {
+    width: 100%;
+    background-color: $bl;
+    border: 0.11vh solid $wh;
+    border-radius: 0.5vh;
+    color: $hoverBlue;
+    font-weight: bold;
+    padding: 0.5vh;
+    &.hidden {
+      visibility: hidden
+    }
+    &:hover {
+      outline: none;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+form.yes-no-form {
+  position: absolute;
+  top: 2vh;
+  right: 1vh;
+  left: 0;
+  bottom: 0;
+  margin: 0.25vh;
+  display: flex;
+  align-items: center;
+  input {
+    width: 10vh;
+    margin: 1vh 0;
+  }
+  .btn {
+    width: 5vh;
+    margin-left: 1vh
+  }
+}
+
+form.selectorForm {
+  margin: 2vh 0 0.5vh 2vh;
+  width: 75%;
+  .oms-select-label {
+    margin-right: 1.5vh;
+    display: inline-block;
+    line-height: 3.5vh;
+  }
+}

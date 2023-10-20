@@ -1,0 +1,154 @@
+@import '~@/assets/vars';
+$borderHoverWidth: 3px;
+$tabBorderHoverColorTop: cyan;
+$tabBorderActive: #035a5a;
+$tabBorderHoverColorBottom: #999;
+$background: linear-gradient(top, #037777 0%,#049999 50%, black 100%);
+$textShadow: $default-text-shadow;
+$tabBorder: $borderHoverWidth solid $gr;
+$tabHeight: 30px;
+$tabSpacing: 8px;
+$radius: 5px;
+
+
+.vue-tabs {
+  width: 100%;
+
+  .nav-tabs {
+    overflow: hidden;
+    border-bottom: 0;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: start;
+    padding-top: .5em;
+    margin: 0;
+    margin-bottom: 1vh;
+    li {
+      margin-top: 4px;
+      &:first-child {
+        margin-left: 7px;
+      }
+    }
+  }
+
+  .nav-tabs li.active {
+    margin-top: 0;
+  }
+
+  .nav-tabs a {
+    color:#fff;
+    text-shadow: $textShadow;
+    background:#888;
+    position:relative;
+    display:inline-block;
+    margin:0 $tabSpacing;
+    padding: 0 10px;
+    border-radius:4px 4px 0 0;
+    text-decoration: none;
+    height: $tabHeight;
+    font-weight: bold;
+  }
+  .nav-tabs a:before,
+  .nav-tabs a:after {
+    content:" ";
+    position: absolute;
+    top:0;
+    width: 23px;
+    bottom: -1px;
+    background-color: #888;
+  }
+  .nav-tabs .active a:before,
+  .nav-tabs .active a:after {
+    border-top-color: $tabBorderHoverColorTop;
+    border-left-color: $tabBorderHoverColorTop;
+    border-right-color: $tabBorderHoverColorTop;
+    border-bottom: none;
+  }
+
+  .nav-tabs a:before {
+    border-radius: $radius;
+    transform: skew(-20deg);
+    left: -$tabSpacing;
+    border-left: $tabBorder;
+    border-top: $tabBorder;
+    border-top-right-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom: $tabBorder;
+    border-bottom-right-radius: 0;
+  }
+  .nav-tabs a:after {
+    border-radius: $radius;
+    transform: skew(20deg);
+    right: -$tabSpacing;
+    border-right: $tabBorder;
+    border-top: $tabBorder;
+    border-top-left-radius: 0;
+    border-bottom: $tabBorder;
+    border-bottom-left-radius: 0;
+    z-index: 1;
+  }
+  .nav-tabs li.active a  {
+    background-image: $background;
+    height: 34px;
+  }
+
+  .nav-tabs li.active a:before,
+  .nav-tabs li.active a:after {
+    z-index: 1;
+    background-image: $background;
+    border-color: $tabBorderActive;
+  }
+  section {
+    position: relative;
+    width: auto;
+    height: 38vh;
+    border: $default-border;
+    background-color: #222121;
+    > div {
+      padding-bottom: 0.25vh;
+    }
+  }
+
+  section .scroller {
+    background-color: #222121;
+  }
+
+  .active.title.title_center {
+    background-image: $background;
+  }
+  .title.title_center {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    border-top: $borderHoverWidth solid transparent;
+    border-bottom: $borderHoverWidth solid transparent;
+    white-space: nowrap;
+    z-index: 9;
+  }
+
+  li.active .title.title_center {
+    background-image: $background;
+    border-color: $tabBorderActive;
+  }
+
+  li.active a span.title_center {
+    height: 32px;
+  }
+
+  li:hover .tab {
+    :before, :after {
+      border-color: $tabBorderHoverColorTop;
+    }
+    span.title_center {
+      border-top-color: $tabBorderHoverColorTop;
+      border-bottom-color: $tabBorderHoverColorTop;
+    }
+  }
+}

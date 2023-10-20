@@ -1,0 +1,7 @@
+apps:
+  - script   : 'server.js'
+    name     : 'global6000_services'
+    exec_mode: 'cluster'
+    instances: 'max'
+    watch: false
+

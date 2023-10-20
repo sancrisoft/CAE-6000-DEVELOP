@@ -1,0 +1,80 @@
+@import '~@/assets/vars';
+.oms-window {
+  position: relative;
+  background-color: $gr;
+  min-height: 15vh;
+  border: 0.3vh solid $gr;
+  border: 0.11vh outset;
+  z-index: 999;
+
+  &.full {
+    min-height: 50vh;
+    position: absolute;
+    width: 100%;
+  }
+
+  &.half {
+    width: 40vh !important;
+  }
+
+  &.floating-panel {
+    position: absolute;
+    left: 12vh;
+    top: 35vh;
+    z-index:99999
+  }
+
+  .header {
+    width: auto;
+    background-color: $darkblue;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-bottom: 0.5vh solid $gr;
+    border: 0.11vh inset;
+    padding-right: 0.2vh;
+    height: 3.5vh;
+    .label {
+      line-height: 3.5vh;
+      margin-left: 0.5vh;
+      margin-right: auto;
+      white-space: nowrap;
+    }
+    .btn {
+      border: 0.11vh outset;
+      border: $default-border-width solid transparent;
+      line-height: 1vh;
+      &:hover {
+        border-color: $listHover;
+      }
+    };
+    .close {
+      margin: 0 1vh;
+      padding: 0.3vh
+    }
+  }
+  .body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border: 0.2vh solid $gr;
+    background-color: $bl;
+    border: $default-border;
+    font-size: $default-text-size;
+    overflow: hidden;
+
+    .window-content {
+      position: absolute;
+      top: 4vh;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      border: $default-border;
+      margin: 0.5vh;
+      padding: 0.5vh;
+      overflow: hidden;
+    }
+  }
+}

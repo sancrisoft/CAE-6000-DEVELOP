@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="10px" height="10px" viewBox="0 0 10 10" style="enable-background:new 0 0 10 10;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#C7C7C7;}
+	.st1{fill:none;stroke:#06CAFF;stroke-linecap:round;stroke-linejoin:round;}
+</style>
+<g id="Chkbox_x5F_Selected">
+	<g>
+		<rect x="0.5" y="0.5" width="9" height="9"/>
+		<path class="st0" d="M9,1v8H1V1H9 M10,0H0v10h10V0L10,0z"/>
+	</g>
+	<polyline class="st1" points="1.296,5.463 4.653,8.472 9.398,0.602 	"/>
+</g>
+</svg>

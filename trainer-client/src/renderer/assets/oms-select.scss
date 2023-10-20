@@ -1,0 +1,111 @@
+@import '~@/assets/vars';
+.list-label {
+  color: $wh;
+  text-shadow: $default-text-shadow;
+}
+
+.wrapper {
+  display: block;
+  float: left;
+  position: relative;
+  .select-panel {
+    border-radius: 5px
+  }
+
+  &.disabled {
+    @include oms-btn-disabled()
+  }
+
+  &.opened {
+    .label {
+      background-color: $listSelected;
+      border-color: $listSelected !important;
+    }
+    .select-panel {
+      height: auto;
+      border: 0.09vh solid $overlay;
+      background-color: $default-bg-color;
+      display: block;
+      z-index: 9999
+    }
+  }
+.label {
+  position: relative;
+  background-color: $gr;
+  display: block;
+  color: $default-text-color;
+  white-space:nowrap;
+  height: 2.8vh;
+  padding-right: 0.55vh;
+  top: 0;
+  border-radius: $default-list-border-radius;
+  float: left;
+
+  @include oms-combo-border;
+
+  .list-label {
+    display: inline-block;
+    text-align: left;
+    margin: 0.5vh 0 ;
+    padding: 0 0.2vh;
+    padding-left: 0.5vh;
+    font-size: $default-text-size;
+    width: 100%;
+    overflow: hidden;
+    &.highlight {
+      background-color: $darkblue;
+      text-align: left;
+    }
+  }
+  &.downArrow {
+    padding-right: 3vh;
+    &:after {
+      content: "";
+      display: block;
+      border: 0.8vh solid transparent;
+      border-top-color: $default-text-color;
+      position: absolute;
+      top: 1.2vh;
+      right: 0.5vh;
+    }
+  }
+}
+.select-panel {
+  position: relative;
+  top: 0;
+  left: -$oms-combo-border-width;
+  z-index: 999;
+  list-style-type: none;
+  margin: 0;
+  color: $default-text-color;
+  display:inline-block;
+  overflow: hidden;
+  outline: none;
+  padding: 0;
+  height: 0;
+  }
+  .select-panel-list {
+    margin: 0.09vh 0;
+    border: $default-border-width solid transparent;
+    border-radius: $default-list-border-radius;
+    padding: 0 2vh 0 0.45vh;
+    white-space:nowrap;
+    font-size: $default-medium-text-size;
+    font-weight: bold;
+    line-height: 3vh;
+    text-align: left;
+    &:hover {
+      border-color: $listHover;
+    }
+    &.selected {
+      color: $listHover;
+    }
+    &.disabled {
+      @include oms-disabled-menu-item()
+    }
+    .disabled:hover,
+    li.selected:hover {
+      border-color: transparent
+    }
+  }
+}

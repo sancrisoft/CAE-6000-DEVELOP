@@ -1,0 +1,40 @@
+@import '~@/assets/vars';
+
+$table-padding: 1vh;
+
+tbody {
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-row {
+  position: absolute;
+  top: $table-padding;
+  right: $table-padding;
+  left: $table-padding;
+  bottom: $table-padding;
+
+  &.scrollable {
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+}
+
+$scroller-width: 3.1vh;
+$scroller-right: 5px;
+
+.scroller {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-flow: column;
+  justify-content: center;
+  width: $scroller-width;
+  top: 1px;
+  right: $scroller-right;
+  bottom: 1px;
+  background-color: $bl;
+  z-index: 999;
+
+}

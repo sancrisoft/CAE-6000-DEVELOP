@@ -1,0 +1,28 @@
+#ignore IDE
+.idea
+.vscode
+.DS_Store
+# Ignore configuration files that may contain sensitive information.
+docker-compose.yml
+
+# Ignore paths that contain user-generated content.
+/var/lib/mysql
+node_modules
+npm-debug.log
+trainer-client/src/renderer/config/env.js
+
+#ignore db dump files
+docker/db/dump/*
+_no_commit
+#ignore docker generated files
+!.gitkeep
+*.lock
+
+#ignore .htpasswd and .htaccess
+.htpasswd*
+.htacces*
+
+# Ignore test-related files
+coverage.data
+coverage
+

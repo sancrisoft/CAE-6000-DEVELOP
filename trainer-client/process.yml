@@ -1,0 +1,7 @@
+apps:
+  - script   : 'dist/server.js'
+    name     : 'global6000_client'
+    exec_mode: 'cluster'
+    instances: 'max'
+    watch: true
+

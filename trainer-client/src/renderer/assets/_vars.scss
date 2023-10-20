@@ -1,0 +1,128 @@
+/* global */
+$bl: black;
+$wh: white;
+$gr: gray;
+$errorColor: red;
+$shaded-background: rgba(0, 0, 0, 0.5);
+$overlay: rgba(255, 255, 255, 0.5);
+$lightblue: #05437A;
+$darkblue: #000246;
+$hoverBlue:  cyan;
+$listSelected: #216469;
+$listHover: $hoverBlue;
+$yellow: yellow;
+$green: yellowGreen;
+$darkGreen: green;
+$lightGreen: lawngreen;
+$cyan: cyan;
+$editColor: green;
+$editCompColor: white;
+$deleteColor: red;
+$editModeColor: rgba(0, 0, 255, 0.2);
+$editModeColorLight: rgba(142, 142, 200, 0.8);
+
+$fontFace: 'BATC AFD GOTHIC';
+
+$default-border-width: 0.3vh;
+$default-list-border-radius: 0.45vh;
+$oms-viewport-header-height: 5.2vh;
+$content-top-margin: $oms-viewport-header-height + 2;
+$default-h1-size: 2vh;
+$default-smaller-text-size: 1.3vh;
+$default-medium-text-size: 1.65vh;
+$default-small-text-size: 1.5vh;
+$default-text-size: 1.8vh;
+$default-large-text-size: 2vh;
+$default-x-large-text-size: 4vh;
+$default-bg-color: $bl;
+$default-text-color: $wh;
+$dimmed-text-color: rgba(255 ,255, 255, 0.8);
+$default-border:  0.09vh solid $gr;
+
+$default-content-margin: 1.36vh;
+$default-content-padding: 1.36vh;
+
+// tables
+$borderWidth: $default-border-width;
+$radius: 0.5vh;
+
+$bulletListArrowWidth: 5%;
+
+$default-text-shadow: 0.15vh 0 0.15vh $bl;
+//layout
+$layout-height : 100vh;
+$layout-padding : 0;
+
+
+@mixin oms-scrollable-border() {
+  border: $borderWidth solid transparent;
+  &:hover {
+    border-color: $hoverBlue
+  }
+}
+@mixin oms-scrollable-item() {
+    margin:0;
+    padding: 0.5vh;
+    border-radius: $radius
+}
+
+@mixin oms-shaded-background {
+  background-color: $shaded-background
+}
+
+@mixin oms-disabled-menu-item {
+  text-decoration: line-through;
+}
+
+@mixin oms-btn-disabled {
+  pointer-events: none;
+  border-color: $shaded-background;
+  &:before {
+    content: ' ';
+    background-color: $shaded-background;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+  }
+  &:hover {
+    border-color: $shaded-background;
+  }
+}
+
+$oms-combo-border-width: 3px;
+@mixin oms-combo-border {
+  border: $oms-combo-border-width solid $gr;
+  &:hover {
+    border-color: $listHover
+  }
+
+}
+
+@mixin knob {
+  background: url('~@/assets/static/svg/knob-off.svg') no-repeat;
+  background-size: 22px 22px;
+  width: 22px;
+  height: 22px;
+  &.enabled {
+    background-image: url('~@/assets/static/svg/knob-on.svg');
+    background-size: 22px 22px;
+  }
+}
+
+@mixin pre-formatted() {
+  white-space: pre;
+}
+
+// Mixin itself
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+

@@ -1,0 +1,166 @@
+@import '~@/assets/vars';
+
+.scnTab {
+  width: 100%;
+  height: 75vh;
+  font-size: 1.8vh;
+  padding: 1.36vh;
+  background-color: white;
+  z-index: 9999;
+  color: black;
+  margin: 2vh;
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $default-text-color;
+    background-color: $default-bg-color;
+    border-radius: 0.45vh;
+    width: 25vh;
+    height: 3vh;
+    cursor: pointer;
+    margin: 10px 10px;
+    &.selected {
+      color: $default-bg-color;
+      background-color: $default-text-color;
+      border: 2px solid $default-bg-color;
+    }
+  }
+
+  .scnTableContainer {
+    overflow-y: scroll;
+    height: 60vh;
+    .scnTable {
+      margin: 10px 0;
+      width: 100%;
+      border-collapse: collapse;
+      thead {
+        font-size: 2vh;
+        background-color: lightgrey;
+        font-weight: bold;
+      }
+      th, td {
+        border: 1px solid black;
+      }
+    }
+
+  }
+
+}
+
+.scnBuilderModal {
+  font-size: 1.8vh;
+  padding: 1.36vh;
+  background-color: white;
+  z-index: 9999;
+  color: black;
+  border-radius: 2vh;
+  margin: 2vh;
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $default-text-color;
+    background-color: $default-bg-color;
+    border-radius: 0.45vh;
+    width: 15vh;
+    height: 5vh;
+    cursor: pointer;
+    margin: 10px 10px;
+    font-size: 1.8vh;
+
+    &.selected {
+      color: $default-bg-color;
+      background-color: $default-text-color;
+      border: 2px solid $default-bg-color;
+    }
+
+    &.disabled {
+      color: $shaded-background;
+      background-color: $shaded-background;
+      border: none;
+
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+  .sb-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .sb-content {
+    align-items: left;
+    justify-content: center;
+    width: 100%;
+
+    .full-width {
+      width: 100%;
+    }
+  }
+
+  &.editModal {
+    width: 90vh;
+    min-height: 30vh;
+    max-height: 90vh;
+
+    .sb-content {
+      min-height: 15vh;
+      max-height: 75vh;
+    }
+  }
+  &.confirmModal {
+    width: 60vh;
+    min-height: 20vh;
+    max-height: 25vh;
+
+    .sb-content {
+      min-height: 5vh;
+      max-height: 10vh;
+    }
+  }
+}
+
+// Keep outside of ".scnBuilderModal .sb-content" as inner classes gain
+// too much specificity over those declared in dependencies.
+.scnEditForm {
+  $formFieldHeight: 3vh;
+
+  color: $default-bg-color;
+
+  .scnEditLabel {
+    color: $default-bg-color;
+    margin: 2vh;
+    width: 20vh;
+    text-align: right;
+    font-size: 1.8vh;
+  }
+  input, select {
+    font-size: 1.8vh;
+    color: $default-bg-color;
+    background-color: $default-text-color;
+    border: 1px solid $default-bg-color;
+    border-radius: 5px;
+    width: 62vh;
+    height: $formFieldHeight;
+    padding: 0 !important;
+    font-weight: normal !important;
+    &.select-list{
+      height: 15vh !important;
+    }
+  }
+  textarea {
+    width: 100%;
+    height: $formFieldHeight * 6;
+    resize: none;
+  }
+  .v-select {
+    width: 62vh;
+  }
+  .formHelperLabel {
+    font-size: 1.5vh;
+  }
+}

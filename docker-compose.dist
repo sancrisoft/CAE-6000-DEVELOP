@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  trainer_dataservices:
+    container_name: trainer_dataservices
+    build: ./trainer-dataservices/
+    ports:
+      - 8181:8181
+    volumes:
+      - ./trainer-dataservices/app:/var/projects/oms-trainer/trainer-dataservices/app
+      - ./trainer-dataservices/test:/var/projects/oms-trainer/trainer-dataservices/test
+      - ./trainer-dataservices/static:/var/projects/oms-trainer/trainer-dataservices/static
+  trainer_client:
+    container_name: trainer_client
+    command: bash -c "npm run build:web; npm start"
+    build: ./trainer-client/
+    ports:
+      - 8180:8080
+    volumes:
+      - ./trainer-client/src:/var/projects/oms-trainer/trainer-client/src
+      - ./trainer-client/static:/var/projects/oms-trainer/trainer-client/static
+      - ./trainer-client/test:/var/projects/oms-trainer/trainer-client/test
+      - ./trainer-client/config:/var/projects/oms-trainer/trainer-client/config
+      - ./trainer-client/build:/var/projects/oms-trainer/trainer-client/build
+    links:
+      - trainer_dataservices
+

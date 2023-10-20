@@ -1,0 +1,251 @@
+@import '~@/assets/vars';
+th {
+  font-weight: normal
+}
+
+table {
+  border-spacing: 0;
+  &.oms-pager-body-default {
+    position: relative;
+    font-size: $default-text-size;
+    width: 100%;
+    min-height: 63vh;
+    tr {
+      height: 1vh;
+      vertical-align: top;
+        &:last-child {
+          height: 100%
+        }
+      }
+  }
+  &.oms-tab-directory-list-body-default {
+    position: relative;
+    font-size: $default-text-size;
+    width: 100%;
+    min-height: 37vh;
+  }
+  &.body-border-default {
+    position: relative;
+    font-size: $default-text-size;
+    width: 100%;
+    min-height: 24vh;
+
+    tbody {
+      outline: $default-border;
+      padding: 1vh;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+    }
+
+    th:first-child {
+      padding-left: 4vh;
+      width: 70%;
+    }
+  }
+}
+
+.table-text-shaded {
+  font-size: $default-small-text-size;
+  color: $dimmed-text-color
+}
+
+.configure-wireless-lan {
+  min-height: 20vh !important;
+  tbody {
+    top: 2.5vh !important;
+  }
+}
+.data-load-main-panel {
+  th {
+    &.left {
+      text-align: right;
+    }
+  }
+
+  tbody {
+    top: 2.5vh !important;
+  }
+
+  td {
+    span.hidden {
+      display: none
+    }
+  }
+
+  td:first-child {
+    width: 38vh;
+    @include oms-scrollable-item();
+  }
+
+  tfoot {
+    position: absolute;
+    bottom: -6vh;
+  }
+}
+
+.licence-mgmt {
+  table {
+    width: 100%
+  }
+  tbody {
+    top: 2.5vh !important;
+  }
+  tr {
+    &.disabled {
+      td {
+        color: $wh
+      }
+    }
+  }
+
+  td {
+    td {
+      float: left;
+      color: $darkGreen;
+      &:last-child {
+        padding-left: 2vh
+      }
+    }
+  }
+  th {
+    padding: 0;
+  }
+
+  th:first-child  {
+    width: 40%;
+    padding-left: 4vh;
+  }
+  td.typeNo {
+    width: 40%;
+  }
+  td.partNo {
+    width: 35%;
+  }
+  td.status {
+    width: 20%;
+  }
+  td td:last-child  {
+    width: 100%;
+  }
+}
+
+.db-status{
+  width: 100%;
+  margin-top: 0.25vh;
+  border-collapse: separate;
+  th {
+    height: 4vh;
+    margin: 1.15vh auto;
+    display: grid;
+    width: 24%;
+    float: left;
+    border-bottom: $borderWidth solid $wh;
+    text-transform: uppercase;
+    &:first-child {
+      padding-left: 1vh
+    }
+  }
+  tbody {
+    tr {
+      line-height: 3vh;
+      &.notcurrent, &.invalid {
+        td {
+          color: $yellow;
+        }
+        td:first-child {
+          color: $wh;
+        }
+      }
+      td {
+        height: 3vh;
+        box-sizing: border-box;
+        display: grid;
+        float: left;
+        width: 24%;
+        border: $borderWidth solid transparent;
+          &:first-child {
+            margin-right: 1vh;
+            &:hover {
+              border-color: $hoverBlue;
+             border-radius: $radius;
+          }
+        }
+      }
+    }
+  }
+}
+.dataLoadDetails {
+  width: 100%;
+  thead {
+    margin: 0.5vh 0;
+  }
+  tbody {
+   padding: 1vh;
+  }
+  th{
+    padding: 1vh 0;
+  }
+  th:first-child {
+    padding-left: 1vh;
+  }
+  td {
+    width: 50%;
+    border-bottom: 0.22vh dashed $gr;
+    padding: 0.5vh 0;
+    margin:0;
+  }
+
+  .wrap {
+    display: block
+  }
+}
+
+.parameter-group-display-list {
+  margin-top: 3vh;
+  width: 100%;
+  border-collapse: separate;
+  tr {
+    height: 3vh;
+  }
+  td {
+    border: 2px solid transparent;
+    line-height: 2vh;
+    border-radius: 5px;
+    width: 65%;
+    .hoverable {
+      &:first-child {
+        text-align: right;
+        width: 50%
+      }
+      &:last-child {
+        padding-left: 2vh;
+        width: 50%;
+        white-space: nowrap
+      }
+    }
+    &.dynamic {
+      justify-content: space-between;
+      &:hover {
+        border-color: green;
+        cursor: pointer;
+      }
+      span {
+        &:first-child {
+          padding-left: 1vh;
+          text-align: right
+        }
+      }
+    }
+  }
+  .header {
+    height: 3vh;
+    border-bottom: 2px solid $gr
+  }
+  .text-right {
+    text-align: right
+  }
+}

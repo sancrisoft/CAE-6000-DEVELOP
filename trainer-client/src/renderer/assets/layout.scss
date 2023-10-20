@@ -1,0 +1,467 @@
+@import '~@/assets/vars';
+
+@font-face{
+  font-family: $fontFace;
+  src: url('~@/assets/static/fonts/batcadf-webfont.eot');
+  src: url('~@/assets/static/fonts/batcadf-webfont.eot?#iefix') format('embedded-opentype'),
+  url('~@/assets/static/fonts/batcadf-webfont.woff') format('woff'),
+  url('~@/assets/static/fonts/batcadf-webfont.ttf') format('truetype'),
+  url('~@/assets/static/fonts/batcadf-webfont.svg#webfont') format('svg');
+}
+
+body, html {
+  display: flex;
+  min-height: $layout-height;
+  flex-direction: column;
+  margin: 0;
+  color: $default-text-color;
+  overflow: hidden;
+  background-color: $default-bg-color;
+}
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  margin: 0;
+  min-height: $layout-height;
+
+  .trainer-layout {
+    padding: 0;
+    min-height: $layout-height;
+    background-color: $default-text-color;
+    display: block;
+    background-color: $default-text-color;
+    margin: auto 0;
+
+    header, .trainer-layout-column.right .inner {
+      background-color: $default-bg-color;
+    }
+    #ui-wrapper >section {
+      padding:$layout-padding;
+    }
+  }
+}
+
+h1, h2 {
+  flex: 1 100%;
+  text-align: center;
+  font-size: $default-text-size;
+}
+
+h2 {
+  color: $dimmed-text-color;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+header {
+  color: $default-text-color;
+  height: 8vh;
+  font-size: $default-text-size;
+  position: relative;
+  display:flex;
+  flex-direction: row;
+  border-bottom: $default-border;
+}
+
+.oms-viewport-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: none;
+  width: 100%;
+  height: $oms-viewport-header-height;
+  background-color: $darkblue;
+  font-size: $default-large-text-size;
+  margin-left: 0.09vh;
+  box-sizing: border-box;
+  font-weight: bold;
+  > div {
+    margin-right: 0.5vh
+  }
+  .wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+.trainer-layout-wrapper {
+  position: relative;
+  display: flex;
+  flex: 1;
+  text-align: left;
+  overflow: hidden;
+  height: $layout-height;
+  width: 124vh;
+  /* Landscape */
+  @media only screen
+  and (min-device-width: 1024px)
+  and (max-device-width: 1366px)
+  and (orientation: landscape)
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+    width: 118vh !important;
+  }
+  margin: 0 auto;
+  background-color: $bl;
+  .trainer-layout-column {
+    flex: 1;
+    overflow: hidden;
+      &.left {
+        background: url('~@/assets/static/img/EICAS_OnGround_grey40_6k.png') no-repeat;
+        background-size: 100%;
+      }
+
+    .inner-container {
+      min-height: 22%;
+      overflow: visible;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      .inner-container-content {
+        margin: 1vh 1vh 0 1vh
+      }
+    }
+    .full {
+      display: flex;
+      flex-direction: column;
+      min-height: $layout-height;
+      border-left: 0.09vh solid $gr;
+
+      .top, .bottom {
+        position: relative;
+        height: 32vh;
+        .detailsPanel {
+          position: absolute;
+          width: 100%;
+          align-self: flex-start;
+        }
+      }
+      .bottom {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
+  &.editMode {
+    background-color: $editModeColor;
+  }
+}
+
+.oms {
+  font-family: 'BATC AFD GOTHIC';
+  min-height: 92vh;
+  &.custom-cursor, label, a {
+    cursor: url('~@/assets/static/img/oms-cursor_6k.png') 40 40, auto;
+  }
+}
+
+.oms-viewport-content {
+  flex-direction: row;
+  text-align: left;
+  min-width: 100%;
+}
+.oms-viewport-content, .inner-viewport-content {
+  display: flex;
+  text-align: left;
+  font-size: $default-text-size;
+  flex-flow: wrap;
+  padding: 0;
+  .row {
+    flex: 1 100%;
+    margin-bottom: 1.5vh
+  }
+  .add-button-container {
+    width: 20vh;
+    position: absolute;
+    float:left;
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $editCompColor;
+      background-color: $editColor;
+      border-radius: 0.45vh;
+      width: 15vh;
+      height: 3vh;
+      cursor: pointer;
+      margin: 5px 5px;
+    }
+  }
+
+}
+
+.inner-viewport-content {
+  margin: 1vh 0.5vh;
+
+  .full-width {
+    width: 100%
+  }
+}
+
+
+.inner-viewport-content, .inner-container-content {
+  .btn {
+    position: relative;
+    padding: 1vh;
+    border: $default-border-width solid transparent;
+    border-radius: $default-list-border-radius;
+    &:hover {
+      border-color: $listHover;
+    }
+    &.disabled {
+      @include oms-btn-disabled()
+    }
+    &.hidden {
+      visibility: hidden
+    }
+    &.small {
+      width: 3vh;
+      height: 3vh;
+      padding: 0.6vh;
+      line-height: 1.45vh;
+      font-size: $default-small-text-size
+    }
+    &.slim {
+      padding: 0.25vh 1vh;
+    }
+    &.large {
+      font-size: $default-text-size;
+      padding: 0.25vh 1.5vh
+    }
+    &.x-large {
+      font-size: $default-h1-size;
+      padding: 1vh 1.5vh
+    }
+
+  }
+}
+
+.btn {
+  &:active {
+    background-color: $listSelected;
+  }
+  &.disabled {
+    &:active {
+      background-color: $gr;
+    }
+  }
+}
+
+.flex-center {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.flex-justified {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.flex-start {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+
+  .btn:not(:first-child) {
+    margin-left: 1vh
+  }
+  .left {
+    margin-right: auto;
+  }
+}
+
+.flex-right {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto
+}
+
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.border-bottom {
+  padding: 1vh;
+  padding-bottom: 0.5vh;
+  border-bottom: $default-border;
+  margin-bottom: 0 !important;
+}
+
+.btn {
+  justify-content: center;
+  display: flex;
+  height: auto;
+  border-radius: $default-border-width;
+  background-color: $gr;
+  padding: 0.5vh 1vh;
+  box-sizing: border-box;
+  width: auto;
+  font-size: $default-text-size;
+  color: $wh;
+  text-shadow: $default-text-shadow;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  .btn {
+    margin-right: 2vh
+  }
+}
+
+.overlay {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: $layout-height;
+  z-index: 1;
+  background-color: $bl;
+  margin-top: 50%;
+}
+
+.modal-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $shaded-background;
+  align-items: center;
+  z-index: 999;
+  display: flex;
+}
+
+.cyan {
+  color: $cyan
+}
+
+.complete {
+  color: $lightGreen
+}
+
+hr {
+  width: 100%;
+  border-bottom: $default-border;
+}
+
+.text-shaded {
+  color: $dimmed-text-color
+}
+
+.text-error {
+  color: $errorColor
+}
+
+.clearfix {
+  @include clearfix
+}
+
+.boxCentered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35vh;
+}
+
+.nowrap {
+  white-space: nowrap
+}
+
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+.bounce-leave-active {
+  animation: bounce-in .5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.slide-fade-enter-active {
+  transition: all .1s ease;
+}
+.slide-fade-leave-active {
+  transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+.w5 {
+  width: 5% !important;
+}
+.w10 {
+  width: 10% !important;
+}
+.w15 {
+  width: 15% !important;
+}
+.w20 {
+  width: 20% !important;
+}
+.w25 {
+  width: 25% !important;
+}
+.w30 {
+  width: 30% !important;
+}
+.w40 {
+  width: 40% !important;
+}
+.w50 {
+  width: 50% !important;
+}
+.w60 {
+  width: 60% !important;
+}
+.w70 {
+  width: 70% !important;
+}
+.w75 {
+  width: 75% !important;
+}
+.w80 {
+  width: 80% !important;
+}
+.w90 {
+  width: 90% !important;
+}
+.w100 {
+  width: 100% !important;
+}
+
+@import '~@/assets/forms';
+@import '~@/assets/tables';
+@import '~@/assets/lists';
+@import '~@/assets/oms-vue-tabs-theme';
+@import '~@/assets/maint-menu-summary';
+@import '~@/assets/side-menu';
+@import '~@/assets/scn-builder';

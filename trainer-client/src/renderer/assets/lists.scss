@@ -1,0 +1,125 @@
+@import '~@/assets/vars';
+
+@mixin list-bullet {
+  width: $bulletListArrowWidth;
+  margin-right: 1vh;
+  &:before {
+    content: " ";
+    border-color: transparent $wh;
+    border-style: solid;
+    border-width: 0.35em 0 0.35em 0.75em;
+    display: inline-block;
+    height: 0;
+    width: 0;
+    left: 0.5vh;
+    position: relative;
+  }
+}
+
+@mixin list-edit {
+  width: 2vh;
+  height: 1.25vh;
+  margin: 0 0.5vh 0.25vh 0;
+  display: block;
+  white-space: pre;
+  &:before {
+    content: " ";
+  }
+}
+
+.hoverable-list {
+  width: 55vh;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: $default-large-text-size;
+
+  &.menu {
+    .hoverable-list-item {
+      height: 3vh;
+      display: flex;
+      align-items: center;
+    }
+  }
+  .hoverable-list-item {
+    display: flex;
+    align-items: center;
+    padding: 0.25vh 0.25vh;
+    min-height: 3vh;
+    justify-content: start;
+    border: $default-border-width solid transparent;
+    border-radius: $default-list-border-radius;
+    margin-left: 0;
+    margin-bottom: 0.45vh;
+    font-weight: bold;
+      &.disabled {
+        @include oms-disabled-menu-item()
+      }
+      &:hover {
+        border-color: $hoverBlue
+      }
+    }
+  }
+
+  .hoverable-list-item-bullet {
+    @include list-bullet
+  }
+
+  .hoverable-list-item-edit {
+    @include list-edit
+
+    margin-right: 1vh;
+    cursor: pointer !important;
+    background-color: $editColor;
+  }
+
+  .hoverable-list-item-delete {
+    @extend .hoverable-list-item-edit;
+
+    background-color: $deleteColor;
+  }
+
+$largerWidth: 72%;
+.maint-menu-display-list {
+  width: 100%;
+
+  td {
+    width: auto;
+    font-size: $default-text-size;
+    vertical-align: top;
+    line-height: auto;
+    &.larger {
+      width:  $largerWidth;
+      padding-right: 5%;
+
+      .uppercase {
+        @include pre-formatted();
+      }
+    }
+    &.no-bullet {
+      width: $largerWidth + $bulletListArrowWidth
+    }
+    .maint-menu-display-list-bullet {
+      @include list-bullet
+    }
+    .maint-menu-display-list-edit {
+      @include list-edit
+
+      cursor: pointer !important;
+      background-color: $editColor;
+    }
+    .maint-menu-display-list-delete {
+      @extend .maint-menu-display-list-edit;
+
+      background-color: $deleteColor;
+    }
+
+    .hoverable-list & {
+      min-width: 3vh;
+
+      &.larger {
+        width: 35vh;
+      }
+    }
+  }
+}

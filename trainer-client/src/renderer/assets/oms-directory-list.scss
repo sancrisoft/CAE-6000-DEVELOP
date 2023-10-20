@@ -1,0 +1,75 @@
+$oms-directory-list-bullet-width: 50vh;
+
+.oms-directory-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  ul {
+    list-style-type: none;
+    padding-left: 1vh;
+   }
+  .oms-directory-list-bullet {
+    position: relative;
+    min-width: 1.85vh;
+    width: $oms-directory-list-bullet-width;
+    display: inline-block;
+    padding: 0 0 0 2.5vh;
+    min-height: 2.5vh;
+  }
+  .oms-directory-list-item {
+    margin: 0;
+  }
+  .root.bullet {
+    min-height: 2vh;
+  }
+
+  .child-row {
+    line-height: 3vh;
+    padding: 0;
+    &.collapsed {
+      &.fault-row {
+        height: 0
+      }
+      > * {
+        display: none
+      }
+    }
+  }
+
+  .collapsible {
+    height: 20px;
+    background: url("~@/assets/static/img/list-collapsible.png") no-repeat;
+  }
+
+  .expandable {
+    height: 20px;
+    background: url("~@/assets/static/img/list-expandable.png") no-repeat;
+  }
+}
+
+.static {
+    background: url("~@/assets/static/img/list-static.png") no-repeat;
+}
+
+.collapsed {
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.1s ease;
+  height: 0;
+  opacity: 0
+}
+
+.expanded {
+  transform: scaleY(1);
+  transform-origin: top;
+  transition: transform 0.1s ease;
+}
+
+.expanded, .collapsed {
+  padding-left: 1vh;
+}
+/*
+.expanded .expanded,
+.collapsed .collapsed {
+  padding-left: 2.4vh;
+} */
